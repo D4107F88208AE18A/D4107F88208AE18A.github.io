@@ -21,15 +21,15 @@
   <title>Ubuntu配置域名解析 - GNACOH</title>
 
   
-    <meta name="description" content="ubuntu设置域名服务器 命令：resolvconf 步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP  步骤二、将dns信息刷新到服务配置里边 1reslovconf -u  步骤三、重启服务 1service resolvconf restart">
+    <meta name="description" content="ubuntu设置域名服务器命令：resolvconf步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP 步骤二、将dns信息刷新到服务配置里边 1reslovconf -u 步骤三、重启服务 1service resolvconf restart">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu配置域名解析">
 <meta property="og:url" content="https://d4107f88208ae18a.github.io/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="ubuntu设置域名服务器 命令：resolvconf 步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP  步骤二、将dns信息刷新到服务配置里边 1reslovconf -u  步骤三、重启服务 1service resolvconf restart">
+<meta property="og:description" content="ubuntu设置域名服务器命令：resolvconf步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP 步骤二、将dns信息刷新到服务配置里边 1reslovconf -u 步骤三、重启服务 1service resolvconf restart">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-02T10:50:37.000Z">
-<meta property="article:modified_time" content="2022-11-02T10:52:36.733Z">
+<meta property="article:modified_time" content="2022-11-02T11:02:44.205Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
   
@@ -98,14 +98,10 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>Ubuntu配置域名解析</span></h1>
-<p><code>ubuntu</code>设置域名服务器</p>
-<p>命令：resolvconf</p>
-<p>步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base</p>
+<p><code>ubuntu</code>设置域名服务器<br>命令：resolvconf<br>步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 域名服务器IP</span><br></pre></td></tr></table></figure>
-
 <p>步骤二、将dns信息刷新到服务配置里边</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reslovconf -u</span><br></pre></td></tr></table></figure>
-
 <p>步骤三、重启服务</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service resolvconf restart</span><br></pre></td></tr></table></figure>
 
