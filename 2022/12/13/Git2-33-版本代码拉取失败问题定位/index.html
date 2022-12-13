@@ -23,15 +23,15 @@
   <title>GNACOH</title>
 
   
-    <meta name="description" content="ubuntu设置域名服务器命令：resolvconf步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP 步骤二、将dns信息刷新到服务配置里边 1reslovconf -u 步骤三、重启服务 1service resolvconf restart">
+    <meta name="description" content="Git 2.33+ 版本代码拉取失败问题定位原因：OpenSSH 8.7 后的版本放弃了默认的RSA密钥算法支持，而 Git 2.33+ 后的版本内置的 OpenSSH 版本高于8.7 导致代码拉取失败；在 Git 安装过程中存在步骤 Choosing the SSH executable，包含如下两个选项：   Use bundled OpenSSH  Use external OpenSSH">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu配置域名解析">
-<meta property="og:url" content="https://d4107f88208ae18a.github.io/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:title" content="Git2.33+版本代码拉取失败问题定位">
+<meta property="og:url" content="https://d4107f88208ae18a.github.io/2022/12/13/Git2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="ubuntu设置域名服务器命令：resolvconf步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base 1nameserver 域名服务器IP 步骤二、将dns信息刷新到服务配置里边 1reslovconf -u 步骤三、重启服务 1service resolvconf restart">
+<meta property="og:description" content="Git 2.33+ 版本代码拉取失败问题定位原因：OpenSSH 8.7 后的版本放弃了默认的RSA密钥算法支持，而 Git 2.33+ 后的版本内置的 OpenSSH 版本高于8.7 导致代码拉取失败；在 Git 安装过程中存在步骤 Choosing the SSH executable，包含如下两个选项：   Use bundled OpenSSH  Use external OpenSSH">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-02T10:50:37.000Z">
-<meta property="article:modified_time" content="2022-11-02T11:02:44.205Z">
+<meta property="article:published_time" content="2022-12-13T03:41:27.000Z">
+<meta property="article:modified_time" content="2022-12-13T03:41:52.605Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
   
@@ -79,9 +79,7 @@
 
 <div class="widgets">
 
-
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2022/12/13/Git2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"><span class="title">Git2.33+版本代码拉取失败问题定位</span></a><a class="item title" href="/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"><span class="title">Ubuntu配置域名解析</span></a></div></div>
-
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">Git2.33+版本代码拉取失败问题定位</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D"><span class="toc-text">Git 2.33+ 版本代码拉取失败问题定位</span></a></li></ol></div></div></div>
 
 
 
@@ -96,16 +94,40 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-11-02T10:50:37.000Z">2022-11-02</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-12-13T03:41:27.000Z">2022-12-13</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>Ubuntu配置域名解析</span></h1>
-<p><code>ubuntu</code>设置域名服务器<br>命令：resolvconf<br>步骤一、创建一个文件&#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 域名服务器IP</span><br></pre></td></tr></table></figure>
-<p>步骤二、将dns信息刷新到服务配置里边</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reslovconf -u</span><br></pre></td></tr></table></figure>
-<p>步骤三、重启服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service resolvconf restart</span><br></pre></td></tr></table></figure>
+<h1 class="article-title"><span>Git2.33+版本代码拉取失败问题定位</span></h1>
+<h3 id="Git-2-33-版本代码拉取失败问题定位"><a href="#Git-2-33-版本代码拉取失败问题定位" class="headerlink" title="Git 2.33+ 版本代码拉取失败问题定位"></a><em>Git 2.33+</em> 版本代码拉取失败问题定位</h3><p><strong>原因</strong>：<em>OpenSSH 8.7</em> 后的版本放弃了默认的RSA密钥算法支持，而 <em>Git 2.33+</em> 后的版本内置的 <em>OpenSSH</em> 版本高于8.7 导致代码拉取失败；在 <em>Git</em> 安装过程中存在步骤 <em>Choosing the SSH executable</em>，包含如下两个选项：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <em>Use bundled OpenSSH</em></li>
+<li><input disabled="" type="checkbox"> <em>Use external OpenSSH</em></li>
+</ul>
+<p>默认为第一选项，使用 <em>Git</em> 自带的 <em>OpenSSH</em> ；可变更为第二选项，使用外部安装的 <em>OpenSSH</em></p>
+<p><strong>解决方法</strong>：</p>
+<p>一、重新启用 <em>RSA&#x2F;SHA</em> 密钥算法支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 添加如下配置到~/.ssh/config文件中</span><br><span class="line">Host old-host</span><br><span class="line">    HostkeyAlgorithms +ssh-rsa</span><br><span class="line">	PubkeyAcceptedAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure>
+
+<p>二、采用仍被支持的密钥算法生成密钥对</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen.exe -t ed25519 -C &#x27;username@email.com&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>附录：</p>
+<p>一、<a target="_blank" rel="noopener" href="http://www.openssh.com/releasenotes.html">OpenSSH Release Notes</a></p>
+<p><font color="red">This release disables RSA signatures using the SHA-1 hash algorithm<br>by default.</font> This change has been made as the SHA-1 hash algorithm is<br>cryptographically broken, and it is possible to create chosen-prefix<br>hash collisions for &lt;USD$50K [1]</p>
+<p>For most users, this change should be invisible and there is<br>no need to replace ssh-rsa keys. OpenSSH has supported RFC8332<br>RSA&#x2F;SHA-256&#x2F;512 signatures since release 7.2 and existing ssh-rsa keys<br>will automatically use the stronger algorithm where possible.</p>
+<p>Incompatibility is more likely when connecting to older SSH<br>implementations that have not been upgraded or have not closely tracked<br>improvements in the SSH protocol. For these cases, it may be necessary<br>to selectively re-enable RSA&#x2F;SHA1 to allow connection and&#x2F;or user<br>authentication via the HostkeyAlgorithms and PubkeyAcceptedAlgorithms<br>options. For example, the following stanza in ~&#x2F;.ssh&#x2F;config will enable<br>RSA&#x2F;SHA1 for host and user authentication for a single destination host:</p>
+<pre><code>Host old-host
+    HostkeyAlgorithms +ssh-rsa
+    PubkeyAcceptedAlgorithms +ssh-rsa
+</code></pre>
+<p>We recommend enabling RSA&#x2F;SHA1 only as a stopgap measure until legacy<br>implementations can be upgraded or reconfigured with another key type<br>(such as ECDSA or Ed25519).</p>
+<p>[1] “SHA-1 is a Shambles: First Chosen-Prefix Collision on SHA-1 and<br>    Application to the PGP Web of Trust” Leurent, G and Peyrin, T<br>    (2020) <a target="_blank" rel="noopener" href="https://eprint.iacr.org/2020/014.pdf">https://eprint.iacr.org/2020/014.pdf</a></p>
+<p><font color="red">Changes since OpenSSH 8.7</font></p>
+<p>二、<em>OpenSSH</em> 版本查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">windows内置ssh版本（cmd）：</span></span><br><span class="line">ssh -V</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Git内置ssh版本（git bash）：</span></span><br><span class="line">ssh -V</span><br></pre></td></tr></table></figure>
+
 
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
@@ -113,7 +135,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/12/13/Git2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/">Git2.33+版本代码拉取失败问题定位</a></div><div class="item" id="next"></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/">Ubuntu配置域名解析</a></div></section></div>
 
 
 
