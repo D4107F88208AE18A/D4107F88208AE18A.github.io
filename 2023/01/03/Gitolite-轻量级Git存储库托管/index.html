@@ -23,12 +23,12 @@
   <title>GNACOH</title>
 
   
-    <meta name="description" content="Gitolite - 轻量级 Git 存储库托管[TOC] 注：适合小规模团队！主要特性 - 细粒度的权限控制（git本身不提供权限管理）！ 123456Gitolite is an access control layer on top of git.# Control access to many git repositories:# Read Accessread access contro">
+    <meta name="description" content="注：适合小规模团队！主要特性 - 细粒度的权限控制 123456Gitolite is an access control layer on top of git.# Control access to many git repositories:# Read Accessread access controlled at the repo level,# Write Accesswrite">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gitolite--轻量级Git存储库托管">
+<meta property="og:title" content="Gitolite-轻量级Git存储库托管">
 <meta property="og:url" content="https://d4107f88208ae18a.github.io/2023/01/03/Gitolite-%E8%BD%BB%E9%87%8F%E7%BA%A7Git%E5%AD%98%E5%82%A8%E5%BA%93%E6%89%98%E7%AE%A1/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="Gitolite - 轻量级 Git 存储库托管[TOC] 注：适合小规模团队！主要特性 - 细粒度的权限控制（git本身不提供权限管理）！ 123456Gitolite is an access control layer on top of git.# Control access to many git repositories:# Read Accessread access contro">
+<meta property="og:description" content="注：适合小规模团队！主要特性 - 细粒度的权限控制 123456Gitolite is an access control layer on top of git.# Control access to many git repositories:# Read Accessread access controlled at the repo level,# Write Accesswrite">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitolite.com/gitolite/ov01.png">
 <meta property="og:image" content="https://gitolite.com/gitolite/ov02.png">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="c:\Users\15016\AppData\Roaming\Typora\typora-user-images\image-20221028161744668.png">
 <meta property="og:image" content="c:\Users\15016\AppData\Roaming\Typora\typora-user-images\image-20221028161701709.png">
 <meta property="article:published_time" content="2023-01-03T05:39:52.000Z">
-<meta property="article:modified_time" content="2023-01-03T05:41:58.122Z">
+<meta property="article:modified_time" content="2023-01-03T05:47:27.691Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitolite.com/gitolite/ov01.png">
@@ -86,7 +86,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">Gitolite--轻量级Git存储库托管</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-x2F-%E8%AE%BE%E5%AE%9A"><span class="toc-text">安装&#x2F;设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-admin-repo%EF%BC%9Agitolite-admin"><span class="toc-text">The admin repo：gitolite-admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-x2F-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="toc-text">配置SSH&#x2F;添加用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E7%8E%B0%E6%9C%89%E5%AD%98%E5%82%A8%E5%BA%93%E5%BC%95%E5%85%A5%E5%88%B0gitolite%EF%BC%88%E8%BF%99%E4%B8%AA%E6%93%8D%E4%BD%9C%E6%98%AF%E5%BE%88%E5%85%B7%E6%9C%89%E6%8E%A8%E5%B9%BF%E6%84%8F%E4%B9%89%E7%9A%84%EF%BC%8C%E5%A6%82%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9C%80%E8%A6%81%E6%8F%90%E4%BE%9Bmysql%E6%88%96%E8%80%85oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E5%88%B0%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="toc-text">将现有存储库引入到gitolite（这个操作是很具有推广意义的，如国产数据库需要提供mysql或者oracle数据库迁移到国产数据库的工具）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Cconf%E2%80%9D%E6%96%87%E4%BB%B6%EF%BC%88conf-x2F-gitolite-conf%EF%BC%89-%E5%AE%9A%E4%B9%89"><span class="toc-text">“conf”文件（conf&#x2F;gitolite.conf） 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Cconf%E2%80%9D%E6%96%87%E4%BB%B6%EF%BC%88conf-x2F-gitolite-conf%EF%BC%89-%E4%BD%BF%E7%94%A8"><span class="toc-text">“conf”文件（conf&#x2F;gitolite.conf） 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LDAP%E7%BB%A7%E6%89%BF"><span class="toc-text">LDAP继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E7%B4%AF%E7%A7%AF"><span class="toc-text">规则累积</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E7%9F%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A6%82%E8%BF%B0"><span class="toc-text">简短的正则表达式概述</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">Gitolite-轻量级Git存储库托管</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-x2F-%E8%AE%BE%E5%AE%9A"><span class="toc-text">安装&#x2F;设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-admin-repo%EF%BC%9Agitolite-admin"><span class="toc-text">The admin repo：gitolite-admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-x2F-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="toc-text">配置SSH&#x2F;添加用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E7%8E%B0%E6%9C%89%E5%AD%98%E5%82%A8%E5%BA%93%E5%BC%95%E5%85%A5%E5%88%B0gitolite%EF%BC%88%E8%BF%99%E4%B8%AA%E6%93%8D%E4%BD%9C%E6%98%AF%E5%BE%88%E5%85%B7%E6%9C%89%E6%8E%A8%E5%B9%BF%E6%84%8F%E4%B9%89%E7%9A%84%EF%BC%8C%E5%A6%82%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9C%80%E8%A6%81%E6%8F%90%E4%BE%9Bmysql%E6%88%96%E8%80%85oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E5%88%B0%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="toc-text">将现有存储库引入到gitolite（这个操作是很具有推广意义的，如国产数据库需要提供mysql或者oracle数据库迁移到国产数据库的工具）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Cconf%E2%80%9D%E6%96%87%E4%BB%B6%EF%BC%88conf-x2F-gitolite-conf%EF%BC%89-%E5%AE%9A%E4%B9%89"><span class="toc-text">“conf”文件（conf&#x2F;gitolite.conf） 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Cconf%E2%80%9D%E6%96%87%E4%BB%B6%EF%BC%88conf-x2F-gitolite-conf%EF%BC%89-%E4%BD%BF%E7%94%A8"><span class="toc-text">“conf”文件（conf&#x2F;gitolite.conf） 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LDAP%E7%BB%A7%E6%89%BF"><span class="toc-text">LDAP继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E7%B4%AF%E7%A7%AF"><span class="toc-text">规则累积</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E7%9F%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A6%82%E8%BF%B0"><span class="toc-text">简短的正则表达式概述</span></a></li></ol></div></div></div>
 
 
 
@@ -104,9 +104,10 @@
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-01-03T05:39:52.000Z">2023-01-03</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>Gitolite--轻量级Git存储库托管</span></h1>
-<h1 id="Gitolite-轻量级-Git-存储库托管"><a href="#Gitolite-轻量级-Git-存储库托管" class="headerlink" title="Gitolite - 轻量级 Git 存储库托管"></a><em>Gitolite</em> - 轻量级 <em>Git</em> 存储库托管</h1><p>[TOC]</p>
-<p>注：适合小规模团队！主要特性 - 细粒度的<strong>权限控制</strong>（git本身不提供权限管理）！</p>
+<h1 class="article-title"><span>Gitolite-轻量级Git存储库托管</span></h1>
+<!-- # *Gitolite* - 轻量级 *Git* 存储库托管 -->
+
+<p>注：适合小规模团队！主要特性 - 细粒度的<strong>权限控制</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Gitolite is an access control layer on top of git.</span><br><span class="line"># Control access to many git repositories:</span><br><span class="line"># Read Access</span><br><span class="line">read access controlled at the repo level,</span><br><span class="line"># Write Access</span><br><span class="line">write access controlled at the branch/tag/file/directory level, including who can rewind, create, and delete branches/tags</span><br></pre></td></tr></table></figure>
 
 <p>其它特性：</p>
