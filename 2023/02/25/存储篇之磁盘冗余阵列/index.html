@@ -23,18 +23,18 @@
   <title>GNACOH</title>
 
   
-    <meta name="description" content="利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。">
+    <meta name="description" content="利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。注：操作系统会把逻辑硬盘当作一个实体硬盘调度。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="存储篇之磁盘冗余阵列">
 <meta property="og:url" content="https://d4107f88208ae18a.github.io/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。">
+<meta property="og:description" content="利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。注：操作系统会把逻辑硬盘当作一个实体硬盘调度。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://rqmfbaipx.hn-bkt.clouddn.com/blogs/RAID0.png">
 <meta property="og:image" content="http://rqmfbaipx.hn-bkt.clouddn.com/blogs/RAID1.png">
 <meta property="og:image" content="http://rqmfbaipx.hn-bkt.clouddn.com/RAID5_%E6%97%A0%E5%BA%95%E8%89%B2.png">
 <meta property="article:published_time" content="2023-02-25T09:09:13.000Z">
-<meta property="article:modified_time" content="2023-02-26T04:43:28.669Z">
+<meta property="article:modified_time" content="2023-02-26T05:11:48.634Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://rqmfbaipx.hn-bkt.clouddn.com/blogs/RAID0.png">
@@ -67,7 +67,7 @@
 <body>
   
 
-
+<div class="l_cover post"><div class="cover"><div class="lazy img bg" data-bg="https://source.unsplash.com/2000x400/?raid"></div></div></div>
 
 
   <div class='l_body' id='start'>
@@ -107,12 +107,12 @@
 <article class='content md post'>
 <h1 class="article-title"><span>存储篇之磁盘冗余阵列</span></h1>
 <!-- 摘要部分 -->
-<p>利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。</p>
+<p>利用虚拟存储技术把多个硬盘组合起来，成为一个或多个硬盘阵列组（逻辑硬盘），其目的为提升读写性能或冗余备份，或是两者同时提升。注：操作系统会把逻辑硬盘当作一个实体硬盘调度。</p>
 <span id="more"></span>
 <!-- 正文部分 -->
-<p>注：操作系统会把逻辑硬盘当作一个实体硬盘调度。</p>
-<h1 id="一、RAID常见等级"><a href="#一、RAID常见等级" class="headerlink" title="一、RAID常见等级"></a>一、RAID常见等级</h1><p><strong>RAID的前置知识</strong></p>
-<p>RAID 5校验位运用异或运算如果a、b两个值不相同，则异或结果为1。如果a、b两个值相同，异或结果为0。<br>同理，延伸到多个数值的情况下，若数值为1有奇数个，则结果为1；若数值为1有偶数个，则结果为0；</p>
+<h1 id="一、RAID常见等级"><a href="#一、RAID常见等级" class="headerlink" title="一、RAID常见等级"></a>一、RAID常见等级</h1><h6 id="奇偶校验块"><a href="#奇偶校验块" class="headerlink" title="奇偶校验块"></a>奇偶校验块</h6><p>容错式磁盘阵列（RAID）使用奇偶校验块实现冗余。如果阵列中的一块磁盘出现故障，工作磁盘中的数据块与奇偶校验块一起来重建丢失的数据。<br>下面的图表每列表示一个磁盘，假设A1&#x3D;00000111、A2&#x3D;00000101以及A3&#x3D;00000000。A1、A2、A3异或得到的Ap等于00000010。如果第二个磁盘出现故障，A2将不能被访问，但是可以通过A1、A3与Ap的异或进行重建：<br>A1 XOR A3 XOR Ap &#x3D; 00000101</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      冗余磁盘阵列</span><br><span class="line">A1        A2        A3</span><br><span class="line">Ap        B1        B2</span><br><span class="line">Bp        C1        C2</span><br><span class="line">C3        C4        Cp</span><br></pre></td></tr></table></figure>
+
 <h2 id="标准RAID"><a href="#标准RAID" class="headerlink" title="标准RAID"></a>标准RAID</h2><h3 id="RAID-0"><a href="#RAID-0" class="headerlink" title="RAID 0"></a>RAID 0</h3><p>RAID 0把连续的数据分散到多个磁盘上存取，这样，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。</p>
 <div class="tag-plugin image"><div class="image-bg" style="background:white;padding:16px;"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://rqmfbaipx.hn-bkt.clouddn.com/blogs/RAID0.png" fancybox="true" style="width:200px;"/></div></div>
 <h3 id="RAID-1"><a href="#RAID-1" class="headerlink" title="RAID 1"></a>RAID 1</h3><p>RAID1通过硬盘数据镜像实现数据的冗余，保护数据安全，在两块盘上产生互为备份的数据。当一个硬盘失效时，系统可以自动切换到镜像硬盘上读&#x2F;写，并且不需要重组失效的数据。（<strong>仅能</strong>由两块硬盘组成）</p>
