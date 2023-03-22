@@ -23,15 +23,15 @@
   <title>GNACOH</title>
 
   
-    <meta name="description" content="软件用起来才有价值，才有改进的机会。 -- FIT2CLOUD 飞致云 Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供核心的网络功能。Docker默认预置三种网络，分别为：none、host和bridge。 12345[root@localhost ~]# docker network lsNETWORK ID          NAME">
+    <meta name="description" content="软件用起来才有价值，才有改进的机会。 -- FIT2CLOUD 飞致云 Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供Docker引擎的核心网络功能。Docker默认预置三种网络，分别为：none、host和bridge。 12345[root@localhost ~]# docker network lsNETWORK ID">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 网络驱动程序">
 <meta property="og:url" content="https://d4107f88208ae18a.github.io/2023/03/22/Docker-%E7%BD%91%E7%BB%9C%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="软件用起来才有价值，才有改进的机会。 -- FIT2CLOUD 飞致云 Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供核心的网络功能。Docker默认预置三种网络，分别为：none、host和bridge。 12345[root@localhost ~]# docker network lsNETWORK ID          NAME">
+<meta property="og:description" content="软件用起来才有价值，才有改进的机会。 -- FIT2CLOUD 飞致云 Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供Docker引擎的核心网络功能。Docker默认预置三种网络，分别为：none、host和bridge。 12345[root@localhost ~]# docker network lsNETWORK ID">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-22T03:01:17.000Z">
-<meta property="article:modified_time" content="2023-03-22T03:23:08.417Z">
+<meta property="article:modified_time" content="2023-03-22T03:27:20.618Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
   
@@ -103,7 +103,7 @@
 <article class='content md post'>
 <h1 class="article-title"><span>Docker 网络驱动程序</span></h1>
 <p class="tag-plugin quot" type="text">软件用起来才有价值，才有改进的机会。 -- FIT2CLOUD 飞致云</p>
-<p>Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供核心的网络功能。Docker默认预置三种网络，分别为：none、host和bridge。</p>
+<p>Docker 的网络子系统是可插拔的，使用驱动程序实现；存在以下七种 Docker 驱动程序，由它们提供Docker引擎的核心网络功能。Docker默认预置三种网络，分别为：none、host和bridge。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">5a24a53e4896        bridge              bridge              local</span><br><span class="line">52dd3de39d6e        host                host                local</span><br><span class="line">87cf56a3fc84        none                null                local</span><br></pre></td></tr></table></figure>
 <h3 id="Bridge-networks"><a href="#Bridge-networks" class="headerlink" title="Bridge networks"></a>Bridge networks</h3><p><strong><font color="red">网桥是属于数据链路层的设备。</font></strong><br>若无特殊指定网络驱动，容器默认将创建该类型的网络驱动。Docker服务默认会创建名为docker0的桥接网卡。该网卡连接物理网卡和Docker容器网络驱动，主机和容器之间可以通过docker0网桥相互通信。<br>      使用场景：当应用程序在需要通信的独立容器中运行时，通常会使用桥接网络。工作中常见就是通过一个nginx容器作为代理，将网络请求转发到其它几个不同域名的容器。减少端口的暴露，提供安全性。</p>
 <h3 id="Host-networking"><a href="#Host-networking" class="headerlink" title="Host networking"></a>Host networking</h3><p>定义：使用该网络驱动程序，容器网络栈不隔离于宿主机（容器共享宿主机的网络空间），其次，容器不会分配到IP地址和MAC地址。<br>适用场景：适用对网络性能有较高要求！由于共享宿主机的网络栈，也共享宿主机的网络端口资源。</p>
