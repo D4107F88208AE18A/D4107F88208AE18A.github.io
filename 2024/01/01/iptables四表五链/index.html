@@ -23,15 +23,15 @@
   <title>GNACOH</title>
 
   
-    <meta name="description" content="references:  ‘The iptables tutorial by Oskar Andreasson’ ‘Secure use of iptables and connection tracking helpers by Eric Leblond’ ‘Set up an gateway for home or office with iptables by YoLinux’   相关书">
+    <meta name="description" content="参考资料 ‘The iptables tutorial by Oskar Andreasson’ ‘Secure use of iptables and connection tracking helpers by Eric Leblond’ ‘Set up an gateway for home or office with iptables by YoLinux’">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables四表五链">
 <meta property="og:url" content="https://d4107f88208ae18a.github.io/2024/01/01/iptables%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/index.html">
 <meta property="og:site_name" content="GNACOH">
-<meta property="og:description" content="references:  ‘The iptables tutorial by Oskar Andreasson’ ‘Secure use of iptables and connection tracking helpers by Eric Leblond’ ‘Set up an gateway for home or office with iptables by YoLinux’   相关书">
+<meta property="og:description" content="参考资料 ‘The iptables tutorial by Oskar Andreasson’ ‘Secure use of iptables and connection tracking helpers by Eric Leblond’ ‘Set up an gateway for home or office with iptables by YoLinux’">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-01T07:16:55.000Z">
-<meta property="article:modified_time" content="2024-01-01T07:47:37.959Z">
+<meta property="article:modified_time" content="2024-01-01T07:54:46.078Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
   
@@ -83,9 +83,7 @@
 
 <div class="widgets">
 
-
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2024/01/01/iptables%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/"><span class="title">iptables四表五链</span></a><a class="item title" href="/2023/02/25/Linux-%E4%B8%89%E5%89%91%E5%AE%A2/"><span class="title">Linux 三剑客</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97/"><span class="title">存储篇之磁盘冗余阵列</span></a><a class="item title" href="/2023/10/09/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/"><span class="title">文件描述符</span></a><a class="item title" href="/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"><span class="title">Ubuntu配置域名解析</span></a></div></div>
-
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">iptables四表五链</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></div></div></div>
 
 
 
@@ -104,15 +102,11 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>iptables四表五链</span></h1>
-<hr>
-<p>references:</p>
-<ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
 <li>‘The <a target="_blank" rel="noopener" href="https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html">iptables tutorial</a> by Oskar Andreasson’</li>
 <li>‘<a target="_blank" rel="noopener" href="https://home.regit.org/netfilter-en/secure-use-of-helpers/">Secure use of iptables and connection tracking helpers</a> by Eric Leblond’</li>
 <li>‘<a target="_blank" rel="noopener" href="http://www.yolinux.com/TUTORIALS/LinuxTutorialNetworkGateway.html">Set up an gateway for home or office with iptables</a> by YoLinux’</li>
 </ul>
-<hr>
-<p>相关书籍：<br>The <a target="_blank" rel="noopener" href="https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html">iptables tutorial</a> by Oskar Andreasson<br><a target="_blank" rel="noopener" href="https://home.regit.org/netfilter-en/secure-use-of-helpers/">Secure use of iptables and connection tracking helpers</a> by Eric Leblond<br><a target="_blank" rel="noopener" href="http://www.yolinux.com/TUTORIALS/LinuxTutorialNetworkGateway.html">Set up an gateway for home or office with iptables</a> by YoLinux</p>
 
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
