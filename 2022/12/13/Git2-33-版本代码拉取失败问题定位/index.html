@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="GNACOH">
 <meta property="og:description" content="Git 2.33+ 版本代码拉取失败问题定位原因：OpenSSH 8.7 后的版本放弃了默认的RSA密钥算法支持，而 Git 2.33+ 后的版本内置的 OpenSSH 版本高于8.7 导致代码拉取失败；在 Git 安装过程中存在步骤 Choosing the SSH executable，包含如下两个选项：   Use bundled OpenSSH  Use external OpenSSH">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4107f88208ae18a.github.io/source/images/639814430774d.png">
 <meta property="article:published_time" content="2022-12-13T03:41:27.000Z">
-<meta property="article:modified_time" content="2024-06-07T08:56:41.066Z">
+<meta property="article:modified_time" content="2024-06-13T01:55:34.594Z">
 <meta property="article:author" content="Li CanHong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d4107f88208ae18a.github.io/source/images/639814430774d.png">
   
   
   
@@ -63,7 +65,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97/"><span class="title">存储篇之磁盘冗余阵列</span></a><a class="item title" href="/2022/12/13/Git2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"><span class="title">Git2.33+版本代码拉取失败问题定位</span></a><a class="item title" href="/2024/01/01/iptables%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/"><span class="title">iptables四表五链</span></a><a class="item title" href="/2023/02/25/Linux-%E4%B8%89%E5%89%91%E5%AE%A2/"><span class="title">Linux 三剑客</span></a><a class="item title" href="/2023/10/09/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/"><span class="title">文件描述符</span></a><a class="item title" href="/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"><span class="title">Ubuntu配置域名解析</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/"><span class="title">存储篇之网络存储</span></a><a class="item title" href="/2023/02/11/%E4%BA%91%E5%8E%9F%E7%94%9F%E5%88%B6%E5%93%81%E4%BB%93%E5%BA%93-Harbor/"><span class="title">云原生制品仓库-Harbor</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><span class="title">存储篇之磁盘性能测试</span></a><a class="item title" href="/2023/07/22/bacula%E5%BC%80%E6%BA%90%E5%A4%87%E4%BB%BD%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><span class="title">Bacula 开源网络备份解决方案</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/12/13/Git2-33-%E7%89%88%E6%9C%AC%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"><span class="title">Git2.33+版本代码拉取失败问题定位</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97/"><span class="title">存储篇之磁盘冗余阵列</span></a><a class="item title" href="/2024/01/01/iptables%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/"><span class="title">iptables四表五链</span></a><a class="item title" href="/2023/02/25/Linux-%E4%B8%89%E5%89%91%E5%AE%A2/"><span class="title">Linux 三剑客</span></a><a class="item title" href="/2023/10/09/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/"><span class="title">文件描述符</span></a><a class="item title" href="/2022/11/02/Ubuntu%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"><span class="title">Ubuntu配置域名解析</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/"><span class="title">存储篇之网络存储</span></a><a class="item title" href="/2023/02/11/%E4%BA%91%E5%8E%9F%E7%94%9F%E5%88%B6%E5%93%81%E4%BB%93%E5%BA%93-Harbor/"><span class="title">云原生制品仓库-Harbor</span></a><a class="item title" href="/2023/02/25/%E5%AD%98%E5%82%A8%E7%AF%87%E4%B9%8B%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><span class="title">存储篇之磁盘性能测试</span></a><a class="item title" href="/2023/07/22/bacula%E5%BC%80%E6%BA%90%E5%A4%87%E4%BB%BD%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><span class="title">Bacula 开源网络备份解决方案</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -76,7 +78,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-12-13T03:41:27.000Z">2022-12-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-06-07T08:56:41.066Z">2024-06-07</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-12-13T03:41:27.000Z">2022-12-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-06-13T01:55:34.594Z">2024-06-13</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -87,7 +89,7 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h3 id="Git-2-33-版本代码拉取失败问题定位"><a href="#Git-2-33-版本代码拉取失败问题定位" class="headerlink" title="Git 2.33+ 版本代码拉取失败问题定位"></a><em>Git 2.33+</em> 版本代码拉取失败问题定位</h3><p><strong>原因</strong>：<em>OpenSSH 8.7</em> 后的版本放弃了默认的RSA密钥算法支持，而 <em>Git 2.33+</em> 后的版本内置的 <em>OpenSSH</em> 版本高于8.7 导致代码拉取失败；在 <em>Git</em> 安装过程中存在步骤 <em>Choosing the SSH executable</em>，包含如下两个选项：</p>
+  </div><article class="md-text content"><h3 id="Git-2-33-版本代码拉取失败问题定位"><a href="#Git-2-33-版本代码拉取失败问题定位" class="headerlink" title="Git 2.33+ 版本代码拉取失败问题定位"></a><em>Git 2.33+</em> 版本代码拉取失败问题定位</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/source/images/639814430774d.png" alt="报错"><br><strong>原因</strong>：<em>OpenSSH 8.7</em> 后的版本放弃了默认的RSA密钥算法支持，而 <em>Git 2.33+</em> 后的版本内置的 <em>OpenSSH</em> 版本高于8.7 导致代码拉取失败；在 <em>Git</em> 安装过程中存在步骤 <em>Choosing the SSH executable</em>，包含如下两个选项：</p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> <em>Use bundled OpenSSH</em></li>
 <li><input disabled="" type="checkbox"> <em>Use external OpenSSH</em></li>
